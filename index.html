@@ -24,6 +24,17 @@
             aspect-ratio: 16 / 9;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
+        
+        /* Mobile responsive slide container */
+        @media (max-width: 768px) {
+            .slide-container {
+                aspect-ratio: auto;
+                min-height: 100vh;
+                max-width: 100%;
+                margin: 0;
+                border-radius: 0;
+            }
+        }
 
         .slide {
             opacity: 0;
@@ -64,6 +75,8 @@
 
         .nav-button {
             transition: all 0.3s ease;
+            min-width: 48px;
+            min-height: 48px;
         }
 
         .nav-button:hover {
@@ -74,6 +87,20 @@
         .nav-button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+        }
+        
+        /* Mobile-friendly navigation */
+        @media (max-width: 768px) {
+            .nav-button {
+                min-width: 56px;
+                min-height: 56px;
+                padding: 16px !important;
+            }
+            
+            .nav-button svg {
+                width: 24px;
+                height: 24px;
+            }
         }
         
         .slide-number {
@@ -105,6 +132,17 @@
             font-size: 16px;
         }
         
+        /* Mobile improvements for action buttons */
+        @media (max-width: 768px) {
+            .print-button {
+                width: 44px;
+                height: 44px;
+                top: 10px;
+                right: 10px;
+                font-size: 18px;
+            }
+        }
+        
         .print-button:hover {
             background: rgba(255, 255, 255, 0.2);
             color: rgba(255, 255, 255, 0.9);
@@ -131,6 +169,16 @@
             font-size: 16px;
         }
         
+        @media (max-width: 768px) {
+            .fullscreen-button {
+                width: 44px;
+                height: 44px;
+                top: 10px;
+                right: 64px;
+                font-size: 18px;
+            }
+        }
+        
         .fullscreen-button:hover {
             background: rgba(255, 255, 255, 0.2);
             color: rgba(255, 255, 255, 0.9);
@@ -144,6 +192,52 @@
         :-moz-full-screen .print-button,
         :-moz-full-screen .fullscreen-button {
             display: none !important;
+        }
+        
+        /* Additional mobile improvements */
+        @media (max-width: 640px) {
+            /* Improve text readability on small screens */
+            .slide h1 {
+                line-height: 1.1;
+                word-break: break-word;
+            }
+            
+            .slide h2 {
+                line-height: 1.2;
+            }
+            
+            .slide p {
+                line-height: 1.4;
+            }
+            
+            /* Ensure minimum tap targets */
+            .slide-number {
+                font-size: 0.75rem;
+                bottom: 10px;
+                right: 15px;
+            }
+            
+            /* Better spacing for mobile */
+            .slide {
+                padding: 1rem !important;
+            }
+            
+            /* Prevent horizontal scrolling */
+            body {
+                overflow-x: hidden;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .nav-button:hover {
+                transform: none;
+            }
+            
+            .nav-button:active {
+                transform: scale(0.95);
+                background-color: #7C3AED;
+            }
         }
         
         /* Print Styles */
@@ -210,7 +304,7 @@
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+<body class="flex flex-col items-center justify-center min-h-screen p-2 sm:p-4 md:p-6 lg:p-8">
 
     <button class="print-button" onclick="printAllSlides()" title="Print PDF">
         �️
@@ -224,23 +318,23 @@
     <div id="presentation" class="relative w-full rounded-2xl overflow-hidden slide-container">
 
         <!-- Slide 1: Title -->
-        <div class="slide active p-10 md:p-16 flex flex-col justify-center items-center text-center bg-gradient-to-br from-violet-900 via-indigo-900 to-purple-900">
-            <svg class="w-20 h-20 text-white mb-6 fade-in-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="slide active p-6 sm:p-10 md:p-16 flex flex-col justify-center items-center text-center bg-gradient-to-br from-violet-900 via-indigo-900 to-purple-900">
+            <svg class="w-16 h-16 sm:w-20 sm:h-20 text-white mb-4 sm:mb-6 fade-in-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                 <path d="M2 17l10 5 10-5"></path>
                 <path d="M2 12l10 5 10-5"></path>
             </svg>
-            <h1 class="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight fade-in-up delay-1">The 'Right To Change' Conclave</h1>
-            <p class="text-2xl sm:text-3xl md:text-4xl text-violet-300 mt-4 fade-in-up delay-2">തിരുവനന്തപുരം തീരുമാനിക്കുന്നു</p>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black text-white leading-tight fade-in-up delay-1">The 'Right To Change' Conclave</h1>
+            <p class="text-lg sm:text-2xl md:text-3xl lg:text-4xl text-violet-300 mt-2 sm:mt-4 fade-in-up delay-2">തിരുവനന്തപുരം തീരുമാനിക്കുന്നു</p>
             <div class="slide-number">1 / 17</div>
         </div>
 
         <!-- Slide 2: Context & Opportunity -->
-        <div class="slide p-10 md:p-16 flex flex-col justify-center bg-gray-900 text-white">
-            <h2 class="text-3xl uppercase font-bold text-violet-400 fade-in-up">Context & Opportunity</h2>
-            <p class="text-xl md:text-2xl lg:text-3xl mt-4 leading-snug fade-in-up delay-1">Narrow lanes, stalled infrastructure, seasonal flooding, no parking, and an eroding coast all tell one story...</p>
-            <p class="mt-8 text-4xl md:text-5xl lg:text-6xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-pink-500 fade-in-up delay-2">Status Quo Has Failed.</p>
-            <div class="mt-12 text-center text-2xl md:text-3xl font-bold text-violet-200 fade-in-up delay-3">
+        <div class="slide p-6 sm:p-10 md:p-16 flex flex-col justify-center bg-gray-900 text-white">
+            <h2 class="text-2xl sm:text-3xl uppercase font-bold text-violet-400 fade-in-up">Context & Opportunity</h2>
+            <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl mt-4 leading-snug fade-in-up delay-1">Narrow lanes, stalled infrastructure, seasonal flooding, no parking, and an eroding coast all tell one story...</p>
+            <p class="mt-6 sm:mt-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-pink-500 fade-in-up delay-2">Status Quo Has Failed.</p>
+            <div class="mt-8 sm:mt-12 text-center text-xl sm:text-2xl md:text-3xl font-bold text-violet-200 fade-in-up delay-3">
                 <p>Change is no longer an <span class="line-through">OPTION</span></p>
                 <p>Change is a <span class="underline decoration-wavy decoration-yellow-400">NECESSITY</span></p>
             </div>
@@ -524,13 +618,13 @@
     </div>
 
     <!-- Navigation -->
-    <div class="mt-6 flex items-center justify-between w-full max-w-xs sm:max-w-sm">
+    <div class="mt-4 sm:mt-6 flex items-center justify-between w-full max-w-xs sm:max-w-sm px-4">
         <button id="prevBtn" class="nav-button bg-violet-600 text-white rounded-full p-3 shadow-lg disabled:bg-violet-900">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
         </button>
-        <span id="slideCounter" class="text-white text-lg font-semibold">1 / 17</span>
+        <span id="slideCounter" class="text-white text-base sm:text-lg font-semibold px-4">1 / 17</span>
         <button id="nextBtn" class="nav-button bg-violet-600 text-white rounded-full p-3 shadow-lg">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
