@@ -33,6 +33,8 @@
                 max-width: 100%;
                 margin: 0;
                 border-radius: 0;
+                overflow-y: auto;
+                max-height: 100vh;
             }
         }
 
@@ -220,6 +222,11 @@
             /* Better spacing for mobile */
             .slide {
                 padding: 1rem !important;
+                min-height: 100vh;
+                height: auto;
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
             }
             
             /* Prevent horizontal scrolling */
@@ -237,6 +244,12 @@
             .nav-button:active {
                 transform: scale(0.95);
                 background-color: #7C3AED;
+            }
+            
+            /* Improve scrolling on touch devices */
+            .slide-container {
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
             }
         }
         
