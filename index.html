@@ -27,14 +27,29 @@
         
         /* Mobile responsive slide container */
         @media (max-width: 768px) {
+            body {
+                padding: 0 !important;
+                height: 100vh;
+                overflow: hidden;
+            }
+            
             .slide-container {
                 aspect-ratio: auto;
-                min-height: 100vh;
+                height: 100vh;
                 max-width: 100%;
                 margin: 0;
                 border-radius: 0;
                 overflow-y: auto;
-                max-height: 100vh;
+                overflow-x: hidden;
+                position: relative;
+            }
+            
+            /* Don't override absolute positioning - work with it */
+            .slide {
+                /* Keep absolute positioning but allow content to expand */
+                min-height: 100vh;
+                overflow-y: auto;
+                padding: 1.5rem !important;
             }
         }
 
@@ -218,21 +233,6 @@
                 bottom: 10px;
                 right: 15px;
             }
-            
-            /* Better spacing for mobile */
-            .slide {
-                padding: 1rem !important;
-                min-height: 100vh;
-                height: auto;
-                display: flex !important;
-                flex-direction: column;
-                justify-content: center;
-            }
-            
-            /* Prevent horizontal scrolling */
-            body {
-                overflow-x: hidden;
-            }
         }
         
         /* Touch device optimizations */
@@ -410,7 +410,7 @@
                         <svg class="w-12 h-12 text-yellow-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1.5-1.5m1.5 1.5l1.5-1.5m0 0l-1.5 1.5m-1.5-1.5l1.5 1.5" /></svg>
                         <h3 class="text-2xl font-bold text-yellow-400">Conclave Structure</h3>
                     </div>
-                    <p class="text-xl text-violet-100">7 Thematic Sessions over 2 Days, with performances by local artists.</p>
+                    <p class="text-xl text-violet-100">7 Thematic Sessions over 2 Days, interspersed with performances by local artists.</p>
                 </div>
                 <div class="fade-in-up delay-2 bg-violet-900/30 p-6 rounded-2xl border border-violet-600/30">
                     <div class="flex items-center gap-4 mb-4">
@@ -465,7 +465,7 @@
             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="fade-in-up delay-1">
                     <h3 class="text-6xl font-bold text-red-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>The Challenge</h3>
-                    <p class="mt-2 text-violet-200 text-2xl">Public health crises from poor waste management, lack of recycling, and the spread of diseases like dengue from stray animals.</p>
+                    <p class="mt-2 text-violet-200 text-2xl">Public health crises from poor waste management, lack of recycling, the spread of diseases like dengue, and the menace of stray animals.</p>
                 </div>
                 <div class="fade-in-up delay-2">
                     <h3 class="text-6xl font-bold text-green-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>The Vision</h3>
@@ -481,7 +481,7 @@
             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="fade-in-up delay-1">
                     <h3 class="text-6xl font-bold text-red-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>The Challenge</h3>
-                    <p class="mt-2 text-violet-200 text-2xl">Limited promotion of cultural/heritage assets and untapped potential in medical, wellness, and backwater tourism.</p>
+                    <p class="mt-2 text-violet-200 text-2xl">Limited promotion of cultural/heritage assets and untapped potential in medical, wellness, and eco-tourism.</p>
                 </div>
                 <div class="fade-in-up delay-2">
                     <h3 class="text-6xl font-bold text-green-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>The Vision</h3>
@@ -493,11 +493,11 @@
         
         <!-- Slide 10: Theme 4 -->
         <div class="slide p-10 md:p-16 flex flex-col justify-center bg-gray-900 text-white">
-            <h2 class="text-3xl uppercase font-bold text-violet-400 fade-in-up">Theme #4: Green Ananthapuri @2040</h2>
+            <h2 class="text-3xl uppercase font-bold text-violet-400 fade-in-up">Theme #4: Green Ananthapuri</h2>
             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="fade-in-up delay-1">
                     <h3 class="text-6xl font-bold text-red-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>The Challenge</h3>
-                    <p class="mt-2 text-violet-200 text-2xl">Urban mobility crisis with traffic congestion, poor connectivity, and high private vehicle usage due to limited green public transport.</p>
+                    <p class="mt-2 text-violet-200 text-2xl">Urban mobility crisis with traffic congestion, poor connectivity, high private vehicle usage and limited green public transport.</p>
                 </div>
                 <div class="fade-in-up delay-2">
                     <h3 class="text-6xl font-bold text-green-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>The Vision</h3>
@@ -509,7 +509,7 @@
 
         <!-- Slide 11: Theme 5 -->
         <div class="slide p-10 md:p-16 flex flex-col justify-center bg-indigo-900 text-white">
-            <h2 class="text-3xl uppercase font-bold text-violet-400 fade-in-up">Theme #5: Vibrant Trivandrum @2036</h2>
+            <h2 class="text-3xl uppercase font-bold text-violet-400 fade-in-up">Theme #5: Vibrant Trivandrum</h2>
             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="fade-in-up delay-1">
                     <h3 class="text-6xl font-bold text-red-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>The Challenge</h3>
@@ -517,7 +517,7 @@
                 </div>
                 <div class="fade-in-up delay-2">
                     <h3 class="text-6xl font-bold text-green-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>The Vision</h3>
-                    <p class="mt-2 text-violet-200 text-2xl">Boost youth engagement through civic leadership, create employment, and tap into youth energy with sports and organized eSports (like the Dubai model).</p>
+                    <p class="mt-2 text-violet-200 text-2xl">Boost youth engagement through civic leadership, create employment in sunrise sectors, and tap into youth energy with sports and organized eSports (like the Dubai model).</p>
                 </div>
             </div>
             <div class="slide-number">11 / 17</div>
@@ -525,15 +525,15 @@
         
         <!-- Slide 12: Theme 6 -->
         <div class="slide p-10 md:p-16 flex flex-col justify-center bg-purple-900 text-white">
-            <h2 class="text-4xl uppercase font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 fade-in-up mb-8">Theme #6: Reboot Thiruvananthapuram @2035</h2>
+            <h2 class="text-4xl uppercase font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 fade-in-up mb-8">Theme #6: Reboot Thiruvananthapuram</h2>
             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="fade-in-up delay-1">
                     <h3 class="text-6xl font-bold text-red-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>The Challenge</h3>
-                    <p class="mt-2 text-violet-200 text-2xl">Lack of essential services in backward areas, including no street lighting, poor roads, and inadequate water, creating unsafe streets and poor quality of life.</p>
+                    <p class="mt-2 text-violet-200 text-2xl">Backward areas struggle with unsafe living conditions — dark streets, broken roads, poor drainage causing waterlogging, and unreliable water supply. These gaps undermine safety and quality of life.</p>
                 </div>
                 <div class="fade-in-up delay-2">
                     <h3 class="text-6xl font-bold text-green-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>The Vision</h3>
-                    <p class="mt-2 text-violet-200 text-2xl">Focus on immediate liveability challenges by improving drainage to mitigate waterlogging, and provide public spaces and community facilities to foster well-being.</p>
+                    <p class="mt-2 text-violet-200 text-2xl">Create safe, vibrant communities with well-lit streets, resilient roads, effective drainage, reliable water, and public spaces that foster well-being and togetherness.</p>
                 </div>
             </div>
             <div class="slide-number">12 / 17</div>
@@ -541,7 +541,7 @@
         
         <!-- Slide 13: Theme 7 -->
         <div class="slide p-10 md:p-16 flex flex-col justify-center bg-gray-900 text-white">
-            <h2 class="text-3xl uppercase font-bold text-violet-400 fade-in-up">Theme #7: Tech Trivandrum @2047</h2>
+            <h2 class="text-3xl uppercase font-bold text-violet-400 fade-in-up">Theme #7: Tech Trivandrum</h2>
             <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="fade-in-up delay-1">
                     <h3 class="text-6xl font-bold text-red-400 flex items-center gap-2"><svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>The Challenge</h3>
@@ -631,7 +631,7 @@
     </div>
 
     <!-- Navigation -->
-    <div class="mt-4 sm:mt-6 flex items-center justify-between w-full max-w-xs sm:max-w-sm px-4">
+    <div class="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-between max-w-xs px-4 z-50 bg-black bg-opacity-20 rounded-full py-2 backdrop-blur-sm md:relative md:bottom-auto md:left-auto md:transform-none md:mt-6 md:bg-transparent md:backdrop-blur-none md:rounded-none md:py-0 md:max-w-sm">
         <button id="prevBtn" class="nav-button bg-violet-600 text-white rounded-full p-3 shadow-lg disabled:bg-violet-900">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
